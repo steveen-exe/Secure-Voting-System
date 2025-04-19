@@ -1,0 +1,233 @@
+{% include "user/header.html" %}
+
+{% set email=session['email'] %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Profile</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Profile</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row">
+
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body profile-card pt-4 d-flex flex-column align-items-center" style="padding-bottom:5px;">
+
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFD-nZD4QejM8cDLL4zGxF_jJlF_659ijtYqqlLxs&s"
+                            alt="Profile" class="rounded-circle">
+                        <h2 class="pt-3">{{ rows[2]+" "+rows[3] }}</h2>
+                        <h4>Student</h4>
+                        <div class="social-links mt-2">
+                            <a href="#" class="twitter"><i class="bi bi-telephone-fill"></i></a>
+                            <a href="#" class="facebook"><i class="bi bi-envelope-fill"></i></a>
+
+                        </div>
+                    </div>
+                    <div class="card-body profile-card d-flex flex-column" >
+
+                        <h5 class="card-title" style="padding-top: 5px;">Profile Details</h5>
+
+                        <div class="row">
+                            <div class="col-md-4 label ">Full Name</div>
+                            <div class="col-md-8">{{ rows[2]+" "+rows[3] }}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 label">Course</div>
+                            <div class="col-md-8">{{ rows[9]+","+rows[7]+","+rows[8]}}</div>
+                        </div>
+
+                        <!-- <div class="row">
+                            <div class="col-md-4 label">Job</div>
+                            <div class="col-md-8">Web Designer</div>
+                        </div> -->
+
+                        <div class="row">
+                            <div class="col-md-4 label">State</div>
+                            <div class="col-md-8">{{ rows[12]}}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 label">Address</div>
+                            <div class="col-md-8">{{ rows[11] }}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 label">Phone</div>
+                            <div class="col-md-8">{{ rows[10]}}</div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-4 label">Email</div>
+                            <div class="col-md-8">{{ rows[0]}}</div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Profile</h5>
+
+                        <!-- Floating Labels Form -->
+                        <form class="row g-3" action ="/update_profile" method ="post">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name = "fname" class="form-control" id="floatingName" value="{{ rows[2] }}"
+                                        placeholder="fname">
+                                    <label for="floatingName">First Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name ="lname"class="form-control" id="floatingName" value="{{ rows[3] }}"
+                                        placeholder="lname">
+                                    <label for="floatingName">Last Name</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="form-floating">
+                                    <input type="text" name="admno" class="form-control" id="floatingName" value="{{ rows[1] }}"
+                                        placeholder="Your Name" disabled>
+                                    <label for="floatingName">Admno</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" name ="email"class="form-control" id="floatingEmail" value="{{ rows[0] }}"
+                                        placeholder="Your Email" disabled>
+                                    <label for="floatingEmail">Your Email</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="Phone" name="phone"class="form-control" id="floatingPassword"
+                                        value="{{ rows[10] }}" placeholder="Phone">
+                                    <label for="floatingPassword">Phone</label>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="date" name ="dob" class="form-control" id="floatingName" value="{{ rows[4] }}"
+                                        placeholder="dob">
+                                    <label for="floatingName">Dob</label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                <div class="form-floating">
+                                    <select class="form-select" name="gender" type="" id="gender">
+                                        <option disabled selected>Select Gender</option>
+                                        <option value="male">Male</option>
+                                        <option value="female">Female</option>
+                                        <option value="others">Others</option>
+                                    </select>
+                                    <label for="floatingName">Gender</label>
+                                </div>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <div class="form-floating">
+
+                                    <select class="form-select" name="course" id="course">
+                                        <option disabled selected>Select Course</option>
+                                        <option value="BTech">BTECH</option>
+                                        <option value="MTech">MTECH</option>
+                                        <option value="MBA">MBA</option>
+                                        <option value="HMCT">HMCT</option>
+
+                                    </select>
+                                    <label for="Course">Course</label>
+                                </div>
+                            </div>
+
+
+                            <div class="form-group col-md-6">
+                                <div class="form-floating">
+
+                                    <select class="form-select" name="branch" id="branch">
+                                        <option disabled selected>Select Branch</option>
+                                        <option>CSE</option>
+                                        <option>ME</option>
+                                        <option>ECE</option>
+                                        <option>AD</option>
+                                        <option>CE</option>
+                                        <option>CSD</option>
+                                        <option>IT</option>
+                                        <option>HMCT</option>
+
+                                    </select>
+                                    <label for="Branch">Branch</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name ="sem" class="form-control" id="floatingName" value="{{ rows[7] }}"
+                                        placeholder="Semester">
+                                    <label for="floatingName">Semester</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" name ="rollno" class="form-control" id="floatingName" value="{{ rows[6] }}"
+                                        placeholder="Roll No">
+                                    <label for="floatingName">Roll No</label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12">
+                                <div class="text-center">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <button type="reset" class="btn btn-secondary">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+        </div>
+
+
+        </div>
+    </section>
+
+    <script>
+        var gender = document.getElementById("gender");
+        gender.value = "{{ rows[5] }}";
+
+        var course = document.getElementById("course");
+        course.value = "{{ rows[9] }}";
+
+        var branch = document.getElementById("branch");
+        branch.value = "{{ rows[8] }}";
+    </script>
+
+</main><!-- End #main -->
+{% include "user/footer.html" %}

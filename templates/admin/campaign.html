@@ -1,0 +1,92 @@
+{% include "admin/header.html" %}
+<main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Create Campaign</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin/">Home</a></li>
+          <li class="breadcrumb-item active">Create Campaign</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <div class="card">
+        <div class="card-body">
+        <h5 class="card-title">Create Campaign Form</h5>
+
+        <!-- Floating Labels Form -->
+        <form class="row g-3" action="/campaction" method="post" onsubmit="return validateTime()">
+            <!-- Campaign Name -->
+            <div class="col-md-6">
+                <div class="form-floating">
+                    <input type="text" name="name" class="form-control" id="floatingName" placeholder="Campaign Name" required>
+                    <label for="floatingName">Campaign Name</label>
+                </div>
+            </div>
+            
+            <!-- Date -->
+            <div class="col-md-4">
+                <div class="form-floating">
+                    <input type="date" name="date" class="form-control" id="floatingDate" placeholder="Date" required>
+                    <label for="floatingDate">Date</label>
+                </div>
+            </div>
+
+            <!-- Start Time -->
+            <div class="col-md-5">
+                <div class="form-floating">
+                    <input type="time" name="starttime" class="form-control" id="starttime" placeholder="Start Time" required>
+                    <label for="starttime">Start Time</label>
+                </div>
+            </div>
+
+            <!-- End Time -->
+            <div class="col-md-5">
+                <div class="form-floating">
+                    <input type="time" name="endtime" class="form-control" id="endtime" placeholder="End Time" required>
+                    <label for="endtime">End Time</label>
+                </div>
+            </div>
+    
+            <!-- Designation -->
+            <div class="col-md-10">
+                <div class="col-md-12">
+                    <div class="form-floating">
+                        <input type="text" name="designation" class="form-control" id="floatingDesignation" placeholder="Designation" required>
+                        <label for="floatingDesignation">Designation</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <div class="col-md-12">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary">Reset</button>
+            </div>
+        </form><!-- End floating Labels Form -->
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    // Function to validate if End Time is after Start Time
+    function validateTime() {
+        const startTime = document.getElementById('starttime').value; // Format: "HH:MM"
+        const endTime = document.getElementById('endtime').value;     // Format: "HH:MM"
+
+        if (startTime >= endTime) {
+            alert("End Time must be after Start Time!");
+            return false; // Prevent form submission
+        }
+        return true; // Allow form submission
+    }
+
+    // Optional: Dynamically update End Time minimum value based on Start Time
+    document.getElementById('starttime').addEventListener('change', function() {
+        const startTime = this.value;
+        document.getElementById('endtime').min = startTime; // Set min attribute for End Time
+    });
+</script>
+
+{% include "admin/footer.html" %}

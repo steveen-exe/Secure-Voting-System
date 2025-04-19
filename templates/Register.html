@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Registration</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
+
+    <!-- Favicons -->
+    <link href={{ url_for('static', filename = "assets/img/favicon.png")}} rel="icon">
+    <link href={{ url_for('static', filename = "assets/img/apple-touch-icon.png")}} rel="apple-touch-icon">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet">
+
+    <!-- Vendor CSS Files -->
+    <link href={{ url_for('static', filename = "assets/vendor/bootstrap/css/bootstrap.min.css")}} rel="stylesheet">
+    <link href={{ url_for('static', filename = "assets/vendor/bootstrap-icons/bootstrap-icons.css")}}
+      rel="stylesheet">
+    <link href={{ url_for('static', filename = "assets/vendor/fontawesome-free/css/all.min.css")}}
+      rel="stylesheet">
+    <link href={{ url_for('static', filename = "assets/vendor/glightbox/css/glightbox.min.css")}} rel="stylesheet">
+    <link href={{ url_for('static', filename = "assets/vendor/swiper/swiper-bundle.min.css")}} rel="stylesheet">
+    <link href={{ url_for('static', filename = "assets/vendor/aos/aos.css")}} rel="stylesheet">
+
+    <!-- Template Main CSS File -->
+    <link href={{ url_for('static', filename = "assets/css/main.css")}} rel="stylesheet">
+
+
+  </head>
+
+  <style>
+  input,select
+  {
+    height: 50px;
+  }
+</style>
+
+  <body>
+
+    <!-- ======= Header ======= -->
+    <header id="header" class="header d-flex align-items-center fixed-top">
+      <div class="container-fluid container-xl d-flex align-items-center
+        justify-content-between">
+
+        <a href="/" class="logo d-flex align-items-center">
+          <!-- Uncomment the line below if you also wish to use an image logo -->
+          <!-- <img src="assets/img/logo.png" alt=""> -->
+          <h1>VOTING MATE</h1>
+        </a>
+
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+        <nav id="navbar" class="navbar">
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a class="login" href="/login">Login</a></li>
+
+          </div>
+        </header><!-- End Header -->
+        <!-- End Header -->
+
+        <main id="main">
+
+          <!-- ======= Breadcrumbs ======= -->
+          <div class="breadcrumbs">
+            <div class="page-header d-flex align-items-center" style="background-image: url('{{url_for('static', filename = "assets/img/votebg.jpg")}}');">
+              <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                  <div class="col-lg-6 text-center">
+                    <h2>Registration</h2>
+                    <p>Welcome to the registration page for our voting website. To access your account and participate in the voting process, please enter your details in the fields provided below.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <nav>
+              <div class="container">
+                <ol>
+                  <li><a href="/">Home</a></li>
+                  <li>Register</li>
+                </ol>
+              </div>
+            </nav>
+          </div><!-- End Breadcrumbs -->
+      
+
+          <!-- ======= Get a Quote Section ======= -->
+          <section id="get-a-quote" class="get-a-quote">
+            <div class="container" data-aos="fade-up">
+              <div class="row">
+                <form class="col-md-10 offset-1" action ="/regaction" method ="post"> 
+                  <div class="row mb-3">
+                    <div class="form-group col-md-4">
+                      <label for="First Name">Firstname</label>
+                      <input type="text" name ="fname"class="form-control"
+                        id="inputEmail4" placeholder="firstname"pattern="[A-Za-z\s]+" title="Enter a valid name (letters and spaces only)" required>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="Last Name">Lastname</label>
+                      <input type="text" name = "lname" class="form-control"
+                        id="inputPassword4" placeholder="last name" pattern="[A-Za-z\s]+" title="Enter a valid name (letters and spaces only)" required>
+
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label for="Admission No">Admission Number</label>
+                      <input type="text" name ="admno" class="form-control"
+                        id="inputAdmissionNo4" placeholder="Admno" required>
+                    </div>
+
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="form-group col-md-4">
+                      <label for="inputEmail4">Email</label>
+                      <input type="email" name="email"pattern="[a-z0-9._%+\-]+@stcet.org$" class="form-control" id="inputEmail4"
+                        placeholder="Email" required>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label for="inputEmail4">Phone Number</label>
+                      <input type="text" name="phone"class="form-control" id="inputEmail4"
+                        placeholder="Phone" pattern="^\d{10}$" required>
+                        
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <label for="Date Of Birth">Date Of Birth</label>
+                      <input type="date"name="dob" class="form-control"
+                        id="inputEmail4" required >
+                    </div>
+
+
+                   
+                  </div>
+
+                  <div class="row mb-3">
+
+                    <div class="form-group col-md-4">
+                      <label for="Course">Course</label>
+                      <select class="form-select" name="course" required
+                        id="inputPassword4">
+                        <option>BTech</option>
+                        <option>MTech</option>
+                        <option>MBA</option>
+                        <option>HMCT</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group col-md-4">
+                      <div class="row">
+                        <label for="Gender">Gender</label>
+                      </div>
+                     
+
+                     
+                        <div class="form-check form-check-inline mt-3" >
+                          <input class="form-check-input" type="radio" name="gender" id="inlineRadio1" value="male">
+                          <label class="form-check-label" for="inlineRadio1">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" value="female">
+                          <label class="form-check-label" for="inlineRadio2">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" name="gender" id="inlineRadio3" value="Others">
+                          <label class="form-check-label" for="inlineRadio3">Others</label>
+                        </div>
+                      <!-- </div> -->
+                      
+                    </div>
+
+              
+        
+
+                  <div class="row mb-3">
+
+                    <div class="form-group col-md-4">
+                      <label for="Branch">Branch</label>
+                      <select class="form-select" name="branch" required
+                        id="inputPassword4">
+                        <option>CSE</option>
+                        <option>ME</option>
+                        <option>ECE</option>
+                        <option>AD</option>
+                        <option>CE</option>
+                        <option>CSD</option>
+                        <option>IT</option>
+                        <option>HMCT</option>
+                    
+                      </select>
+                    </div>
+
+
+                   
+                    <div class="form-group col-md-4">
+                      <label for="sem">Semester</label>
+                      <input type="text" name="sem" class="form-control" id="inputAdmissionNo4" placeholder="semester" required>
+                    </div>
+
+
+                    <div class="form-group col-md-4">
+                      <label for="Admission No">Roll No</label>
+                      <input type="text" name="rollno" class="form-control" id="inputAdmissionNo4" placeholder="Roll No" required>
+                    </div>
+
+
+                    
+
+                    
+                  </div>
+
+
+                  <div class="row mb-3">
+
+                    <div class="form-group col-md-6">
+                      <label for="inputAddress">Address</label>
+                      <input type="text" name="address"class="form-control"
+                        id="inputAddress" placeholder="1234 Main St" required>
+                    </div>
+
+
+                    <div class="form-group col-md-6">
+                      <label for="inputState">State</label>
+                      <select id="inputState" name="state" required
+                        class="form-control">
+                        <option selected>Choose...</option>
+                        <option>Kerala</option>
+                        <!--<option>Tamil Nadu</option>
+                        <option>Karnataka</option>
+                        <option>Andhra Pradesh</option>-->
+                      </select>
+                    </div>
+
+                   
+
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                      <label for="inputCity">District</label>
+                      <input type="text"name="dist" class="form-control" required
+                        id="inputCity">
+                    </div>
+                    <div class="form-group col-md-4">
+                      <label for="inputState">City</label>
+                      <input type="text" name="city" class="form-control" required
+                      id="inputCity">
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label for="inputPincode">Pincode</label>
+                      <input type="text" name ="pin" class="form-control" required
+                        id="inputZip">
+                    </div>
+                  </div>
+
+                  <div class="row mb-3">
+                    <div class="form-group col-md-6">
+                      <label for="inputCity">Password</label>
+                      <input type="password" name="password" class="form-control" id="password" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="inputState">Confirm Password</label>
+                      <input type="password" name="cpassword" class="form-control" id="inputCity" required>
+                    </div>
+                    
+                  </div>
+                    
+                  <button type="Submit" class="btn
+                    btn-primary">Submit</button>
+                  </form>
+                </div>
+              </div>
+            </section><!-- End Get a Quote Section -->
+
+          </main><!-- End #main -->
+
+          <!-- ======= Footer ======= -->
+          <footer id="footer" class="footer">
+
+            <div class="container">
+              <div class="row gy-4">
+                <div class="col-lg-8 col-md-12 footer-info">
+                  <a href="/index" class="logo d-flex align-items-center">
+                    <span>VOTING MATE</span>
+                  </a>
+                  <p>Voting Mate aims to be transparent, fair, and secure, by ensuring that all eligible voters have an equal opportunity to cast their vote and that the results accurately reflect the preferences of the electorate.</p>
+                  
+                </div>
+        
+                <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
+                  <h4>Contact Us</h4>
+                  <p>
+                    <br>St THOMAS College of Engineering ,Chegannur
+                    Kerala <br><br>
+                   <strong>Phone:</strong> +91 +1 456 789 123<br>
+                   <strong>Email:</strong> votingsystem1000@gmail.com<br>
+                    <strong>Phone:</strong> +91 6282273841<br>
+                    <strong>Email:</strong> 20rr079@gmail.com<br>
+                  </p>
+        
+                </div>
+        
+              </div>
+            </div>
+
+            <div class="container mt-4">
+              <div class="copyright">
+                &copy; Copyright <strong><span>VOTING MATE</span></strong>.
+                All Rights Reserved
+              </div>
+             
+              </div>
+            </div>
+
+          </footer><!-- End Footer -->
+          <!-- End Footer -->
+
+          <a href="#" class="scroll-top d-flex
+            align-items-center justify-content-center"><i
+              class="bi bi-arrow-up-short"></i></a>
+
+          <div id="preloader"></div>
+
+          <!-- Vendor JS Files -->
+          <script
+            src={{ url_for('static', filename = "assets/vendor/bootstrap/js/bootstrap.bundle.min.js")}}></script>
+          <script
+            src={{ url_for('static', filename = "assets/vendor/purecounter/purecounter_vanilla.js")}}></script>
+          <script
+            src={{ url_for('static', filename = "assets/vendor/glightbox/js/glightbox.min.js")}}></script>
+          <script
+            src={{ url_for('static', filename = "assets/vendor/swiper/swiper-bundle.min.js")}}></script>
+          <script src={{ url_for('static', filename = "assets/vendor/aos/aos.js")}}></script>
+          <script
+            src={{ url_for('static', filename = "assets/vendor/php-email-form/validate.js")}}></script>
+          <!-- Template Main JS File -->
+          <script src={{ url_for('static', filename = "assets/js/main.js")}}></script>
+
+        </body>
+
+      </html>

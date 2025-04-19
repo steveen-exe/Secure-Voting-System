@@ -1,0 +1,94 @@
+{% include "admin/header.html" %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Dashboard</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin/">Home</a></li>
+          <li class="breadcrumb-item active">View Results</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <div class="col-lg-12">
+           
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p> </p>
+  
+                <!-- Table with stripped rows -->
+                <table class="table datatable">
+                  <thead>
+                    <tr>
+                      
+                      <th scope="col">Symbol</th>
+                      <th scope="col">Name</th>         
+                      <th scope="col">Admno</th>
+                      <th scope="col">Number of Votes</th>
+                     
+                      
+
+                    </tr>
+                  </thead>
+
+                  {% set count=0 %}
+                  {% for row in rows: %}
+                  {% set count=count+1 %}
+                  <tr>
+                    <td><img height="50px" src={{ url_for('static', filename='symbols/' +row[2])}}></td>
+                    <td>{{ row[0]+" "+row[1] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+
+                  </tr>
+                  {% endfor %}
+
+                  <tbody>
+                
+                  </tbody>
+                </table>
+                <div class="text-center">
+                    <a class="btn btn-primary btn-sm" id="printAndSaveBtn">Print Report</a>
+                </div>
+                
+  
+              </div>
+            </div>
+  
+          </div>
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <script>
+    document.getElementById('printAndSaveBtn').addEventListener('click', function() {
+        // Step 1: Print the page
+        window.print();
+        
+        // Step 2: Save the page as a PDF
+        // Note: The "dom-to-image" library is used here to convert the DOM to an image first,
+        // and then save the image as a PDF using the "html2pdf.js" library.
+        // Make sure to include both libraries in your project.
+        domtoimage.toPng(document.body)
+            .then(function (blob) {
+                var pdf = new jsPDF();
+                pdf.addImage(blob, 'PNG', 0, 0, 210, 297); // Assumes A4 size paper (landscape)
+                pdf.save('page.pdf');
+            })
+            .catch(function (error) {
+                console.error('Error while saving the page as PDF:', error);
+            });
+    });
+    
+  </script>
+
+  {% include "admin/footer.html" %}

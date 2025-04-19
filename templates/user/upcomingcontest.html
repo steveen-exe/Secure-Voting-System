@@ -1,0 +1,71 @@
+{% include "user/header.html" %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Upcoming Campaign</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/user/">Campaign</a></li>
+          <li class="breadcrumb-item active">Upcoming Campaign</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <div class="col-lg-12">
+           
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Upcoming Campaign Tables</h5>
+                <p> </p>
+  
+                <!-- Table with stripped rows -->
+                <table class="table datatable">
+                  <thead>
+                    <tr>
+                      
+                      <th scope="col">Name</th>
+                      <th scope="col">Date</th>
+                      <th scope="col">Start_Time</th>
+                      <th scope="col">End_Time</th>
+                      <!-- <th scope="col">Status</th> -->
+                      <th scope="col">Designation</th>                     
+                    </tr>
+                  </thead>
+
+                  {% for row in rows: %}
+                      
+                  <tr>
+                    
+                    <td >{{ row[1] }}</td>
+                    <td >{{ row[2] }}</td>
+                    <td >{{ row[3] }}:00 </td>
+                    <td >{{ row[4] }}</td>
+                    <!-- <td >{{ row[5] }}</td> -->
+                    <td >{{ row[6] }}</td>
+                  </tr>
+                  {% endfor %} 
+
+                  <tbody>
+                
+                  </tbody>
+                </table>
+                <!-- End Table with stripped rows -->
+  
+              </div>
+            </div>
+  
+          </div>
+
+
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  {% include "user/footer.html" %}

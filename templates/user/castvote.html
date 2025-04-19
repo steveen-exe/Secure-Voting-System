@@ -1,0 +1,83 @@
+{% include "user/header.html" %}
+
+{% set email=session['email'] %}
+
+<main id="main" class="main">
+
+    <div class="pagetitle">
+        <h1>Cast Vote</h1>
+        <nav>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item active">Cast Vote</li>
+            </ol>
+        </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+        <div class="row gy-4">
+
+            <div class="col-xl-12">
+
+                <div class="card p-4" style="padding-top: 5px !important;">
+                    <p class="card-title"
+                        style="font-size: 24px;padding-bottom:0px">{{ contest[1]
+                        }}</p>
+
+                    <h6><i class="bi bi-calendar-fill"></i> {{ contest[2] }}
+                        &nbsp;&nbsp;&nbsp;&nbsp;<i class="bi bi-clock-fill"></i>
+                        {{ contest[3] }}:00 hr - {{ contest[4] }}:00 hr</h6>
+                    <h5>Designation : <b>{{ contest[6] }} </b></h5>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-12">
+
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Candidates List</h5>
+                        
+                        <table class="table table-striped">
+                            <thead>
+                              <tr>
+                                <th scope="col">Symbol</th>
+                                <th scope="col">Name of Candidate</th>
+                                <th scope="col">Date of Birth</th>
+                                <th scope="col">Department</th>
+                                
+                                              
+                                <th scope="col">Action</th>  
+                              </tr>
+                            </thead>
+                            <!-- {{candidates}} -->
+                            {% for row in candidates: %}
+                            <tr>
+                              <td><img height="50px" src={{ url_for('static', filename = 'symbols/'+row[4])}}></td>
+                              <td >{{ row[9] }} {{ row[10] }}</td>
+                              <td >{{ row[11] }} </td>
+                              <td >{{ row[16] }} {{ row[15] }} {{ row[14] }}</td>
+                              
+                              
+                              
+                              <td ><a href="/markvote?id={{row[0]}}&cid={{row[1]}}" class="btn btn-primary btn-sm">Cast Vote</a>
+                               </td>
+                              </tr>
+                            </tr>
+                            {% endfor %} 
+          
+                            <tbody>
+                          
+                            </tbody>
+                          </table>
+
+                       
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+    {% include "user/footer.html" %}

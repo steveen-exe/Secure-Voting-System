@@ -1,0 +1,83 @@
+{% include "admin/header.html" %}
+
+  <main id="main" class="main">
+
+    <div class="pagetitle">
+      <h1>Rejected User</h1>
+      <nav>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="/admin/">Home</a></li>
+          <li class="breadcrumb-item active">Rejected User</li>
+        </ol>
+      </nav>
+    </div><!-- End Page Title -->
+
+    <section class="section dashboard">
+      <div class="row">
+
+        <div class="col-lg-12">
+           
+
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">rejected User Table</h5>
+                <p> </p>
+  
+                <!-- Table with stripped rows -->
+                <table class="table datatable">
+                  <thead>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Name</th>
+                      
+                      <th scope="col">Admno</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Phone</th>
+                      <th scope="col">Dob</th>
+                      <th scope="col">Gender</th>                     
+                      <th scope="col">Course</th>
+                      <th scope="col">Branch</th>
+                      <th scope="col">Semester</th>
+                      <th scope="col">Rollno</th>
+                      
+
+                    </tr>
+                  </thead>
+
+                  {% set count=0 %}
+                  {% for row in rows: %}
+                  {% set count=count+1 %}
+                  <tr>
+                    <td scope="col">{{ count }}</td>
+                    <td >{{ row[3]+" "+row[4] }}</td>
+                    <td >{{ row[2] }}</td>
+                    <td >{{ row[1] }}</td>
+                    <td >{{ row[11] }}</td>
+                    <td >{{ row[5] }}</td>
+                    <td >{{ row[6] }}</td>
+                    <td >{{ row[10] }}</td>
+                    <td >{{ row[9] }}</td>
+                    <td >{{ row[8] }}</td>
+                    <td >{{ row[7] }}</td>
+                  </tr>
+                  {% endfor %}
+
+                  <tbody>
+                
+                  </tbody>
+                </table>
+                <!-- End Table with stripped rows -->
+  
+              </div>
+            </div>
+  
+          </div>
+
+
+
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  {% include "admin/footer.html" %}
